@@ -1,7 +1,7 @@
 import Form from "react-bootstrap/Form";
 import noFoto from "../../../assets/img/noDisponible.png";
 
-export const PeliActualizar = (props: any) => {
+export const CamiActualizar = (props: any) => {
   console.log(props);
   return (
     <div className="d-flex justify-content-center">
@@ -9,23 +9,23 @@ export const PeliActualizar = (props: any) => {
         <Form noValidate>
           <div className="card">
             <div className="card-header">
-              <h5 className=" rojito">Actualizar película</h5>
+              <h5 className=" rojito">Actualizar Camisa</h5>
             </div>
 
             <div className="card-body">
               <div className="mb-3">
                 <Form.Group controlId="nombrePelicula">
                   <Form.Label>
-                    <span className="rojito">*</span> Nombre película
+                    <span className="rojito">*</span> Marca Camisas
                   </Form.Label>
-                  <Form.Control size="sm" required type="text" name="nombrePelicula" />
+                  <Form.Control size="sm" required type="text" name="MarcaCamisas" />
                 </Form.Group>
               </div>
 
               <div className="mb-3">
                 <Form.Group controlId="pro">
                   <Form.Label>
-                    <span className="rojito">*</span> Protagonista
+                    <span className="rojito">*</span> Color Camisa
                   </Form.Label>
                   <Form.Control size="sm" required type="text" name="protagonistaPelicula" />
                 </Form.Group>
@@ -34,7 +34,7 @@ export const PeliActualizar = (props: any) => {
               <div className="mb-3">
                 <Form.Group controlId="gen">
                   <Form.Label>
-                    <span className="rojito">*</span> Protagonista
+                    <span className="rojito">*</span> Talla:
                   </Form.Label>
 
                   <Form.Select size="sm" required name="generoPelicula">
@@ -46,7 +46,7 @@ export const PeliActualizar = (props: any) => {
               <div className="mb-3">
                 <Form.Group controlId="fot">
                   <Form.Label>
-                    <span className="rojito">*</span> Imágen:
+                    <span className="rojito">*</span> Modelo:
                   </Form.Label>
                   <Form.Control
                     size="sm"
@@ -67,7 +67,7 @@ export const PeliActualizar = (props: any) => {
 
             <div className="card-footer">
               <button type="submit" className="btn btn-primary">
-                Actualizar película
+                Actualizar Camisa
               </button>
             </div>
           </div>
