@@ -94,7 +94,7 @@ const cargarImagen = async (e: any) => {
                     size="sm"
                     required
                     type="text"
-                    name="protagonistaPelicula"
+                    name="colorCamisa"
                     value={colorCamisas}
                     onChange={dobleEnlace}
                   />
