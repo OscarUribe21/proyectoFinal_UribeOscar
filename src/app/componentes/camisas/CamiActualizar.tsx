@@ -14,7 +14,7 @@ export const CamiActualizar = (props: any) => {
 
             <div className="card-body">
               <div className="mb-3">
-                <Form.Group controlId="nombrePelicula">
+                <Form.Group controlId="Marca Camisas">
                   <Form.Label>
                     <span className="rojito">*</span> Marca Camisas
                   </Form.Label>
@@ -27,7 +27,7 @@ export const CamiActualizar = (props: any) => {
                   <Form.Label>
                     <span className="rojito">*</span> Color Camisa
                   </Form.Label>
-                  <Form.Control size="sm" required type="text" name="protagonistaPelicula" />
+                  <Form.Control size="sm" required type="text" name="Color" />
                 </Form.Group>
               </div>
 
@@ -37,8 +37,8 @@ export const CamiActualizar = (props: any) => {
                     <span className="rojito">*</span> Talla:
                   </Form.Label>
 
-                  <Form.Select size="sm" required name="generoPelicula">
-                    <option value="">Seleccione un genero</option>
+                  <Form.Select size="sm" required name="Talla Camisas">
+                    <option value="">Seleccione una Talla</option>
                   </Form.Select>
                 </Form.Group>
               </div>

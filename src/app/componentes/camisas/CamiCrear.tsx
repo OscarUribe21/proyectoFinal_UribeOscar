@@ -86,7 +86,7 @@ const cargarImagen = async (e: any) => {
               </div>
 
               <div className="mb-3">
-                <Form.Group controlId="pro">
+                <Form.Group controlId="ColorCamisa">
                   <Form.Label>
                     <span className="rojito">*</span> Color Camisa
                   </Form.Label>
@@ -94,7 +94,7 @@ const cargarImagen = async (e: any) => {
                     size="sm"
                     required
                     type="text"
-                    name="colorCamisa"
+                    name="colorCamisas"
                     value={colorCamisas}
                     onChange={dobleEnlace}
                   />
@@ -137,7 +137,7 @@ const cargarImagen = async (e: any) => {
                     size="sm"
                     required
                     type="file"
-                    name="imagenPelicula"
+                    name="imagenCamisas"
                     value = {imagenCamisas}
                     onChange={cargarImagen}
                   />
