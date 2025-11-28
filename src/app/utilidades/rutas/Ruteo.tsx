@@ -3,10 +3,10 @@ import { Route, Routes } from "react-router-dom";
 import { AcercaDe } from "../../componentes/otros/AcercaDe";
 
 import { Inicio } from "../../componentes/contenedor/Inicio";
-import { CamiCrear } from "../../componentes/camisas/CamiCrear";
-import { CamiAdmin } from "../../componentes/camisas/CamiAdmin";
-import { CamiListado } from "../../componentes/camisas/CamiListado";
-import { CamiActualizar } from "../../componentes/camisas/CamiActualizar";
+import { VideojCrear } from "../../componentes/videojuegos/VideojCrear";
+import { VideojAdmin } from "../../componentes/videojuegos/VideojAdmin";
+import { VideojListado } from "../../componentes/videojuegos/VideojListado";
+import { VideojActualizar } from "../../componentes/videojuegos/VideojActualizar";
 
 import { NoEncontrado } from "../../componentes/contenedor/NoEncontrado";
 
@@ -15,10 +15,10 @@ export const Ruteo = () => {
     <Routes>
       <Route path="/" element={<Inicio />} />
 	  
-      <Route path="/ccrear" element={< CamiCrear />} />
-      <Route path="/cadmin" element={< CamiAdmin />} />
-      <Route path="/clistar" element={< CamiListado />} />
-      <Route path="/cactual/:codigo" element={<CamiActualizar />} />
+      <Route path="/ccrear" element={< VideojCrear />} />
+      <Route path="/cadmin" element={< VideojAdmin />} />
+      <Route path="/clistar" element={< VideojListado />} />
+      <Route path="/cactual/:codigo" element={<VideojActualizar />} />
 
       <Route path="/acerca" element={<AcercaDe />} />
 

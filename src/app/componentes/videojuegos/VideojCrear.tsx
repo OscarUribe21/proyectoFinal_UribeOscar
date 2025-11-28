@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import noFoto from "../../../assets/img/noDisponible.png";
 
-import { CamisasTalla } from "../../modelos/CamisasTalla";
-import { ARREGLO_CAMISAS_TALLA } from "../../utilidades/dominios/DomTalla";
+import { VideojuegosTalla } from "../../modelos/VideojuegosTalla";
+import { ARREGLO_CONSOLAS } from "../../utilidades/dominios/DomTalla";
 import { useFormulario } from "../../utilidades/misHooks/useFormulario";
-import { Camisas } from "../../modelos/Camisas";
+import { Videojuegos } from "../../modelos/Videojuegos";
 import { useNavigate } from "react-router-dom";
-import { ARREGLO_CAMISAS } from "../../mocks/Camisas-mocks";
+import { ARREGLO_VIDEOJUEGOS } from "../../mocks/Videojuegos-mocks";
 import { ConvertirBase64 } from "../../utilidades/funciones/ConvertirBase64";
 
-export const CamiCrear = () => {
+export const VideojCrear = () => {
   const irsePara = useNavigate();
 
   type formHtml = React.FormEvent<HTMLFormElement>;
@@ -18,17 +18,17 @@ export const CamiCrear = () => {
   const [imgBase64, setImgBase64] = useState<any>();
   const [imgMiniatura, setimgMiniatura] = useState<any>(noFoto);
 
-  const [arrCamisas] = useState<Camisas[]>(ARREGLO_CAMISAS);
-  const [arrTallas] = useState<CamisasTalla[]>(ARREGLO_CAMISAS_TALLA);
+  const [arrVideojuegos] = useState<Videojuegos[]>(ARREGLO_VIDEOJUEGOS);
+  const [arrTallas] = useState<VideojuegosTalla[]>(ARREGLO_CONSOLAS);
 
   let {
-    marcaCamisas,
-    colorCamisas,
-    codTallaCamisas,
-    imagenCamisas,
+    tituloVideojuegos,
+    anioVideojuegos,
+    consolaVideojuegos,
+    imagenVideojuegos,
     dobleEnlace,
     objeto,
-  } = useFormulario<Camisas>(new Camisas(0, "", "", "", "", ""));
+  } = useFormulario<Videojuegos>(new Videojuegos(0, "", 0, "", "", ""));
 
   const enviarForm = (objForm: formHtml) => {
     objForm.preventDefault();
@@ -39,12 +39,12 @@ export const CamiCrear = () => {
       objForm.stopPropagation();
       setEnProceso(true);
     } else {
-      const ultimaPeli = arrCamisas[arrCamisas.length - 1];
-      const nuevoCod = ultimaPeli.codCamisas + 1;
-      objeto.codCamisas = nuevoCod;
-    objeto.imagenCamisas = imagenCamisas.substring(imagenCamisas.lastIndexOf("\\")+1);
-      objeto.imagenCamisasBase64 = imgBase64; 
-      arrCamisas.push(objeto);
+      const ultimaPeli = arrVideojuegos[arrVideojuegos.length - 1];
+      const nuevoCod = ultimaPeli.codVideojuegos + 1;
+      objeto.codVideojuegos = nuevoCod;
+    objeto.imagenVideojuegos = imagenVideojuegos.substring(imagenVideojuegos.lastIndexOf("\\")+1);
+      objeto.imagenVideojuegosBase64 = imgBase64; 
+      arrVideojuegos.push(objeto);
       setEnProceso(false);
       irsePara("/clistar");
     }
@@ -72,14 +72,14 @@ const cargarImagen = async (e: any) => {
               <div className="mb-3">
                 <Form.Group controlId="nom">
                   <Form.Label>
-                    <span className="rojito">*</span> Marca camisa
+                    <span className="rojito">*</span> Título
                   </Form.Label>
                   <Form.Control
                     size="sm"
                     required
                     type="text"
-                    name="marcaCamisas"
-                    value={marcaCamisas}
+                    name="tituloVideojuegos"
+                    value={tituloVideojuegos}
                     onChange={dobleEnlace}
                   />
                 </Form.Group>
@@ -88,14 +88,14 @@ const cargarImagen = async (e: any) => {
               <div className="mb-3">
                 <Form.Group controlId="ColorCamisa">
                   <Form.Label>
-                    <span className="rojito">*</span> Color Camisa
+                    <span className="rojito">*</span> Año
                   </Form.Label>
                   <Form.Control
                     size="sm"
                     required
-                    type="text"
-                    name="colorCamisas"
-                    value={colorCamisas}
+                    type="number"
+                    name="anioVideojuegos"
+                    value={anioVideojuegos}
                     onChange={dobleEnlace}
                   />
                 </Form.Group>
@@ -104,24 +104,24 @@ const cargarImagen = async (e: any) => {
               <div className="mb-3">
                 <Form.Group controlId="gen">
                   <Form.Label>
-                    <span className="rojito">*</span> Talla
+                    <span className="rojito">*</span> Consola
                   </Form.Label>
 
                   <Form.Select
                     size="sm"
                     required
-                    name="codTallaCamisas"
-                    value={codTallaCamisas}
+                    name="consolaVideojuegos"
+                    value={consolaVideojuegos}
                     onChange={dobleEnlace}
                   >
-                    <option value="">Seleccione una Talla</option>
+                    <option value="">Seleccione una Consola</option>
 
-                    {arrTallas.map((miTalla: CamisasTalla) => (
+                    {arrTallas.map((miTalla: VideojuegosTalla) => (
                       <option
-                        value={miTalla.codTalla}
-                        key={miTalla.codTalla}
+                        value={miTalla.codConsola}
+                        key={miTalla.codConsola}
                       >
-                        {miTalla.nombreTalla}
+                        {miTalla.nombreConsola}
                       </option>
                     ))}
                   </Form.Select>
@@ -137,8 +137,8 @@ const cargarImagen = async (e: any) => {
                     size="sm"
                     required
                     type="file"
-                    name="imagenCamisas"
-                    value = {imagenCamisas}
+                    name="imagenVideojuegos"
+                    value = {imagenVideojuegos}
                     onChange={cargarImagen}
                   />
                 </Form.Group>
@@ -157,7 +157,7 @@ const cargarImagen = async (e: any) => {
 
             <div className="card-footer">
               <button type="submit" className="btn btn-primary">
-                Crear Camisa
+                Crear Videojuego
               </button>
             </div>
           </div>

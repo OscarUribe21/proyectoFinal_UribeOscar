@@ -1,5 +1,1 @@
-export interface CamisasTalla{
-    codTalla: string;
-    nombreTalla: string;
-    
-}
+export { VideojuegosTalla as CamisasTalla } from "./VideojuegosTalla";
